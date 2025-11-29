@@ -3,6 +3,9 @@
 #include <cstdlib>
 #include <conio.h>
 using namespace std;
+
+
+// Sửa code ở đây
 void gotoxy( int column, int line );
 struct Point{
     int x,y;
