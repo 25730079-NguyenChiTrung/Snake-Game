@@ -7,20 +7,40 @@
 #define MINY 2
 #define MAXX 35
 #define MAXY 20
+
 using namespace std;
-void gotoxy( int column, int line );
-struct Point{
-    int x,y;
+
+// Sửa code ở đây
+void VeKhung()
+{
+    for (int i = MINX; i <= MAXX; i++)
+        for (int j = MINX; j <= MAXY; j++)
+            if ((i == MINX) || (i == MAXX) || (j == MINY) || (j == MAXY))
+            {
+                gotoxy(i, j);
+                printf("+");
+            }
+}
+
+void gotoxy(int column, int line);
+struct Point
+{
+    int x, y;
 };
-class CONRAN{
+class CONRAN
+{
 public:
     struct Point A[100];
     int DoDai;
-    CONRAN(){
+    CONRAN()
+    {
         DoDai = 3;
-        A[0].x = 10; A[0].y = 10;
-        A[1].x = 11; A[1].y = 10;
-        A[2].x = 12; A[2].y = 10;
+        A[0].x = 10;
+        A[0].y = 10;
+        A[1].x = 11;
+        A[1].y = 10;
+        A[2].x = 12;
+        A[2].y = 10;
     }
     void Ve(Point Qua){
         for (int i = 0; i < DoDai; i++){
@@ -56,10 +76,14 @@ int main()
     while (1){
         if (kbhit()){
             t = getch();
-            if (t=='a') Huong = 2;
-            if (t=='w') Huong = 3;
-            if (t=='d') Huong = 0;
-            if (t=='x') Huong = 1;
+            if (t == 'a')
+                Huong = 2;
+            if (t == 'w')
+                Huong = 3;
+            if (t == 'd')
+                Huong = 0;
+            if (t == 'x')
+                Huong = 1;
         }
         system("cls");
         r.Ve(Qua);
@@ -70,14 +94,12 @@ int main()
     return 0;
 }
 
-
-void gotoxy( int column, int line )
-  {
-  COORD coord;
-  coord.X = column;
-  coord.Y = line;
-  SetConsoleCursorPosition(
-    GetStdHandle( STD_OUTPUT_HANDLE ),
-    coord
-    );
-  }
+void gotoxy(int column, int line)
+{
+    COORD coord;
+    coord.X = column;
+    coord.Y = line;
+    SetConsoleCursorPosition(
+        GetStdHandle(STD_OUTPUT_HANDLE),
+        coord);
+}
